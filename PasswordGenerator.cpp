@@ -1,21 +1,23 @@
-﻿#include <iostream>
+#include <iostream>
 #include <cstdlib>
 #include <ctime>
 
 using namespace std;
+
+// Here, we will implement a menu drive program in C++ to generate random password with various combinations of alphabets and special 
 
 int main(){
 	
 	srand(time(0));
 	
 	int number, type;
-	char alfanumb [] = "0123456789" "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "abcdefghijklmnopqrstuvwxyz";
-	char senha_fort [] = "0123456789" "!@#$%^&*_" "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "abcdefghijklmnopqrstuvwxyz";
+	char alphanumeric [] = "0123456789" "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "abcdefghijklmnopqrstuvwxyz";
+	char strong_password [] = "0123456789" "!@#$%^&*_" "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "abcdefghijklmnopqrstuvwxyz";
 	char strong [] = "!@#$%^&*_";
-	char senha [30];
+	char password [30];
 	
-	int string_alfa = sizeof(alfanumb)-1;
-	int string_fort = sizeof(senha_fort)-1;
+	int string_alfa = sizeof(alphanumeric)-1;
+	int string_fort = sizeof(strong_password)-1;
 	int string_strong = sizeof(strong)-1;
 	
  	
@@ -37,7 +39,8 @@ int main(){
 		
 		cout << "--------------------------------\n";
 		
-		//	Num�rica
+		//	Numerical
+
 		if (type == 1){
 			
 			cout << "generated password: ";
@@ -48,34 +51,37 @@ int main(){
 			cout << "\n";
 		}
 		
-		//	Alfanum�rica
+		//	alphanumeric
+
 		else if (type == 2){
 			
 			cout << "generated password: ";
 			for (int i=0; i<number; i++){
 				
-				cout << alfanumb [rand() % string_alfa];
+				cout << alphanumeric [rand() % string_alfa];
 			}
 			cout << "\n";
 		}
 	
-		//	Senha forte
+		//	strong password
+
 		else if (type == 3){
 		
 			cout << "generated password ";
-			senha[0] = strong [rand() % string_strong];
+			password[0] = strong [rand() % string_strong];
 				
 			for (int i=1; i<number; i++){
 				
-				senha[i] += senha_fort [rand() % string_fort];
+				password[i] += strong_password [rand() % string_fort];
 			}
-			cout << senha << endl;
+			cout << password << endl;
 		}
 		
 		cout << "--------------------------------\n";
 	}
 	
 	else {
+
 		cout << "+++++++++++++++++++++++++++++++\n";
 		cout <<"Try again" << endl;
 		cout << "+++++++++++++++++++++++++++++++\n";
